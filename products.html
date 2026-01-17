@@ -896,7 +896,7 @@ button:hover {
 
       <div class="form-section">
         <form id="productForm" enctype="multipart/form-data" method="POST" action="/dbproducts/add">
-          <input type="hidden" name="csrfmiddlewaretoken" value="brGovtY7qtReCWYtRzPehHsI3HddH2VSmIQGkpXps71ign2gDbhlKvqCzDsWzY4c">
+          <input type="hidden" name="csrfmiddlewaretoken" value="ZzK9oVQPllwAKmSsdqrrUzY7wngj27BUaQUrdRP7nZGEoNWfZ2TynnW12jv2U3Ke">
           <div class="form-row">
             <div>
               <label for="name">Product Name</label>
@@ -928,6 +928,8 @@ button:hover {
             <option value="False">Inactive</option>
           </select>
 
+          
+
           <div class="image-upload">
             <input type="file" id="imageUpload" name="image" accept="image/*" multiple>
             <label for="imageUpload">📁 Click to upload product images</label>
@@ -955,7 +957,7 @@ button:hover {
 
       <div class="edit-form-section">
         <form id="editProductForm" enctype="multipart/form-data" method="POST" action="/dbproducts/add">
-          <input type="hidden" name="csrfmiddlewaretoken" value="brGovtY7qtReCWYtRzPehHsI3HddH2VSmIQGkpXps71ign2gDbhlKvqCzDsWzY4c">
+          <input type="hidden" name="csrfmiddlewaretoken" value="ZzK9oVQPllwAKmSsdqrrUzY7wngj27BUaQUrdRP7nZGEoNWfZ2TynnW12jv2U3Ke">
           <div class="edit-form-row">
             <div>
               <label for="edit_name">Product Name</label>
@@ -1382,8 +1384,17 @@ button:hover {
   const modal = document.getElementById("productModal");
   const openModalBtn = document.getElementById("openModal");
   const closeModalBtn = document.querySelector(".close");
-  const imageInput = document.getElementById("imageUpload");
   const preview = document.getElementById("preview");
+
+  const imageInput = document.getElementById("imageUpload");
+const imageUploadDiv = document.querySelector(".image-upload");
+
+imageInput.onchange = function() {
+  const clone = imageUploadDiv.cloneNode(true);
+  clone.querySelector("input").value = "";
+  clone.querySelector("input").onchange = imageInput.onchange;
+  imageUploadDiv.parentNode.insertBefore(clone, imageUploadDiv.nextSibling);
+};
 
 
 
