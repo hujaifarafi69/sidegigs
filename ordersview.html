@@ -5471,10 +5471,10 @@ function closeOrderModal(orderId) {
 
 .modal-content {
   background: white;
-  width: 80%; /* Change from 600px to percentage */
-  max-width: 800px; /* Maximum size on large screens */
-  min-width: 300px; /* Minimum size on very small screens */
-  max-height: 90vh; /* Prevent modal from being too tall */
+  width: 80%; 
+  max-width: 800px;
+  min-width: 300px;
+  max-height: 90vh; 
   border-radius: 12px;
   overflow: hidden;
   overflow-y: auto; /* Make content scrollable if too tall */
@@ -5489,10 +5489,13 @@ function closeOrderModal(orderId) {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-items: center;
+  flex-shrink: 0;
 }
-
 .modal-body {
   padding: 20px;
+  flex: 1; 
+  overflow-y: auto; 
 }
 
 .close {
